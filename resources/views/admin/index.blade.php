@@ -8,6 +8,13 @@
 
 @section('content')
 
+        <form action="{{route('notice.update')}}" method="POST">
+            @csrf
+            <div class="p-4">
+                <button type="submit" class="btn btn-success">Обновить новости</button>
+            </div>
+        </form>
+
     <section class="content">
         <div class="container-fluid">
             <div class="row">
