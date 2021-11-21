@@ -1,6 +1,18 @@
 <?php
 
 return [
+    /*
+   |--------------------------------------------------------------------------
+   | URL адрес
+   |--------------------------------------------------------------------------
+   |
+   | Этот URL-адрес используется для отправки запроса в новостной
+   | сервис. Для того что-бы получить фиды.
+   |
+   |
+   */
+
+    'feeds_url_rbc'=>env('CLIENT_URI_RBC'),
 
     /*
     |--------------------------------------------------------------------------
@@ -161,6 +173,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
 
         /*
          * Package Service Providers...

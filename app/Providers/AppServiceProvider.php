@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Components\Services\FeedReadRBC;
+use App\Contracts\FeedReadInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(FeedReadInterface::class,  FeedReadRBC::class);
     }
 
     /**
