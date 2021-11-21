@@ -48,6 +48,12 @@ return [
     */
 
     'channels' => [
+        'parcels' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/parcels.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+
         'stack' => [
             'driver' => 'stack',
             'channels' => ['single'],

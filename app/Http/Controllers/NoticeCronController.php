@@ -24,6 +24,13 @@ final class NoticeCronController
 
        $noticeService->refresh($notice);
 
+       $dispatcher->dispatch(new NoticesParsed(
+           $readRBC->responseStatus,
+           $request->method(),
+           $request->url(),
+           date('l jS \of F Y h:i:s')
+       ));
+
        return $redirect->to('/');
    }
 }
