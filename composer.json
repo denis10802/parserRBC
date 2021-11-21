@@ -13,6 +13,8 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5"
         "symfony/dom-crawler": "^5.3",
+        "symfony/property-access": "^5.3",
+        "symfony/serializer": "^5.3"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.10",

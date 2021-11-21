@@ -49,4 +49,22 @@ class FeedReadRBC implements FeedReadInterface
             );
         });
     }
+
+    public function readTitlesAndLinks(): array
+    {
+        $crawler = new Crawler($this->getBody());
+
+        return $crawler->filterXPath('//channel//item')->each(function (
+            Crawler $parentCrawler,
+                    $i
+        ) {
+            $title = $parentCrawler->filterXPath('//title');
+            $link = $parentCrawler->filterXPath('//link');
+
+            return new NoticeCommandDto(
+                $title->text(),
+                $link->text(),
+            );
+        });
+    }
 }

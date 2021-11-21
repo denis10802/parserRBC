@@ -4,6 +4,8 @@ namespace App\Components\Services;
 
 use App\Components\DataTransferObjects\NoticeResponseDto;
 use App\Models\Notice;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class NoticeService
 {
@@ -37,5 +39,17 @@ class NoticeService
 
             $modelUpdate->save();
         }
+    }
+
+    /**
+     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
+     */
+    public function serialize(array $notices): array
+    {
+        $normalizer = [new ObjectNormalizer()];
+
+        $serializer = new Serializer($normalizer, $notices);
+
+        return $serializer->normalize($notices);
     }
 }
