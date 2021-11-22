@@ -28,7 +28,7 @@ final class NoticeCronController
            $readRBC->responseStatus,
            $request->method(),
            $request->url(),
-           date('l jS \of F Y h:i:s')
+           date('DATE_RFC822')
        ));
 
        return $redirect->to('/');

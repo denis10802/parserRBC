@@ -4,12 +4,14 @@ namespace App\Components\Services;
 
 use App\Components\DataTransferObjects\NoticeResponseDto;
 use App\Models\Notice;
+use Illuminate\Support\Collection;
+use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
 class NoticeService
 {
-    public function list(): \Illuminate\Support\Collection
+    public function list(): Collection
     {
         return Notice::all()->map(function (Notice $notice) {
             return new NoticeResponseDto(
@@ -42,7 +44,7 @@ class NoticeService
     }
 
     /**
-     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
+     * @throws ExceptionInterface
      */
     public function serialize(array $notices): array
     {

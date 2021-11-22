@@ -6,6 +6,7 @@ use App\Components\DataTransferObjects\NoticeCommandDto;
 use App\Components\Services\NoticeService;
 use App\Contracts\FeedReadInterface;
 use Illuminate\Console\Command;
+use Symfony\Component\Serializer\Exception\ExceptionInterface;
 
 class ActualNoticesPrintCommand extends Command
 {
@@ -14,7 +15,7 @@ class ActualNoticesPrintCommand extends Command
     protected $description = 'Get notices from RBC';
 
     /**
-     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
+     * @throws ExceptionInterface
      */
     public function handle(
         FeedReadInterface $feedReed,
